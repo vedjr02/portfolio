@@ -17,7 +17,6 @@
   html {
     scroll-behavior: smooth;
     background-color: var(--navy);
-    cursor: none;
   }
   
   body {
@@ -379,46 +378,82 @@
   opacity: 1;
 }
 
-/* Cursor Effects */
-.cursor-dot {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: var(--primary);
-  border-radius: 50%;
-  z-index: 9999;
-  transition: opacity 0.3s ease-in-out;
+/* Preloader Animations */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
-.cursor-ring {
-  pointer-events: none;
-  position: fixed;
-  top: -16px;
-  left: -16px;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--primary);
-  border-radius: 50%;
-  z-index: 9998;
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+@keyframes blink {
+  50% { border-color: transparent }
 }
 
-.cursor-trail {
-  pointer-events: none;
-  position: fixed;
-  top: -4px;
-  left: -4px;
-  width: 16px;
-  height: 16px;
-  background-color: var(--primary);
-  border-radius: 50%;
-  z-index: 9997;
-  opacity: 0.2;
-  transition: opacity 0.3s ease-in-out;
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes smoke {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2) translate(var(--smoke-x), var(--smoke-y));
+    opacity: 0;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    transform: translate(2px);
+  }
+  20% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    transform: translate(-2px);
+  }
+  40% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+    transform: translate(1px);
+  }
+  60% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+    transform: translate(-1px);
+  }
+  80% {
+    clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    transform: translate(1px);
+  }
+  100% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    transform: translate(0);
+  }
+}
+
+@keyframes matrix {
+  0% {
+    text-shadow: 0 0 0 var(--primary);
+    transform: translate(0, 0);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--primary);
+    transform: translate(0, -2px);
+  }
+  100% {
+    text-shadow: 0 0 0 var(--primary);
+    transform: translate(0, 0);
+  }
 }
 
 /* Section Headings */
@@ -469,4 +504,23 @@
   background: linear-gradient(to right, var(--primary), var(--primary-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Matrix Code Rain Effect */
+.matrix-code {
+  font-family: 'Courier New', monospace;
+  color: var(--primary);
+  text-shadow: 0 0 5px var(--primary);
+  animation: matrix 2s infinite;
+}
+
+/* Smoke Particles */
+.smoke-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: smoke 2s infinite;
 }
