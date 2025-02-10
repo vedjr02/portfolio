@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import TextScramble from './TextScramble';
+import TiltCard from './TiltCard';
 
 const projects = [
   {
@@ -49,8 +51,10 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="section-heading">
-            <span className="text-[#64ffda] mr-2">03.</span> Some Things I've Built
+          <h2 className="flex items-center font-semibold text-2xl text-gray-200 mb-8">
+            <span className="font-mono text-[#64ffda] text-xl mr-2">03.</span>
+            <TextScramble text="Some Things I've Built" />
+            <span className="ml-4 h-[1px] w-32 bg-gray-600" />
           </h2>
 
           <div className="grid gap-8">
@@ -61,17 +65,34 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#112240] p-6 rounded-lg"
               >
-                <div className="flex flex-col">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-semibold text-[#ccd6f6]">{project.title}</h3>
+                <TiltCard className="bg-[#112240] p-6 rounded-lg">
+                  <div className="relative z-10">
+                    <p className="font-mono text-[#64ffda] text-sm mb-2">Featured Project</p>
+                    <h3 className="text-2xl font-semibold text-gray-200 mb-4">
+                      <a
+                        href={project.external}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[#64ffda] transition-colors"
+                      >
+                        {project.title}
+                      </a>
+                    </h3>
+                    <div className="bg-[#112240] p-6 rounded-lg shadow-xl mb-4">
+                      <p className="text-gray-400">{project.description}</p>
+                    </div>
+                    <ul className="flex flex-wrap gap-4 text-sm font-mono text-gray-400 mb-4">
+                      {project.tech.map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
                     <div className="flex gap-4">
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-[#64ffda] transition-colors"
+                        className="text-gray-300 hover:text-[#64ffda] transition-colors"
                       >
                         <FiGithub size={20} />
                       </a>
@@ -79,39 +100,65 @@ export default function Projects() {
                         href={project.external}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-[#64ffda] transition-colors"
+                        className="text-gray-300 hover:text-[#64ffda] transition-colors"
                       >
                         <FiExternalLink size={20} />
                       </a>
                     </div>
                   </div>
-                  <p className="text-[#8892b0] mb-4">{project.description}</p>
-                  {project.linkedInPost && (
-                    <div className="w-full mb-4 bg-white rounded-lg overflow-hidden">
-                      <iframe
-                        src={`https://www.linkedin.com/embed/feed/update/${project.linkedInPost}`}
-                        height="500"
-                        width="100%"
-                        frameBorder="0"
-                        allowFullScreen
-                        title="Embedded LinkedIn Post"
-                      ></iframe>
-                    </div>
-                  )}
-                  <ul className="flex flex-wrap gap-2 mb-4">
+                </TiltCard>
+              </motion.div>
+            ))}
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <TiltCard className="bg-[#112240] p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-200 mb-4">
+                    <a
+                      href={project.external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#64ffda] transition-colors"
+                    >
+                      {project.title}
+                    </a>
+                  </h3>
+                  <p className="text-gray-400 mb-4">{project.description}</p>
+                  <ul className="flex flex-wrap gap-2 text-sm font-mono text-gray-400 mb-4">
                     {project.tech.map((tech) => (
-                      <li
-                        key={tech}
-                        className="text-xs text-[#64ffda] bg-[#172a45]/50 px-2 py-1 rounded"
-                      >
-                        {tech}
-                      </li>
+                      <li key={tech}>{tech}</li>
                     ))}
                   </ul>
-                </div>
+                  <div className="flex gap-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-[#64ffda] transition-colors"
+                    >
+                      <FiGithub size={20} />
+                    </a>
+                    <a
+                      href={project.external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-[#64ffda] transition-colors"
+                    >
+                      <FiExternalLink size={20} />
+                    </a>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
+          <h2 className="text-center text-2xl font-semibold text-gray-200 mb-8">
+            <TextScramble text="Other Noteworthy Projects" delay={0.2} />
+          </h2>
         </motion.div>
       </div>
     </section>
