@@ -126,6 +126,18 @@
   white-space: nowrap;
 }
 
+/* Glow Effects */
+.name-glow {
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5),
+               0 0 20px rgba(100, 255, 218, 0.3),
+               0 0 30px rgba(100, 255, 218, 0.1);
+}
+
+.subtitle-glow {
+  text-shadow: 0 0 5px rgba(136, 146, 176, 0.3),
+               0 0 10px rgba(136, 146, 176, 0.2);
+}
+
 /* Hover Effects */
 .hover-underline {
   position: relative;
@@ -148,6 +160,15 @@
 .hover-underline:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.hover-glow {
+  transition: all 0.3s ease-in-out;
+}
+
+.hover-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
 }
 
 /* Card Hover Effects */

@@ -6,15 +6,6 @@ import ParallaxSection from './ParallaxSection';
 
 const projects = [
   {
-    title: 'Smart Password Generator',
-    description: 'A Google Chrome extension that generates strong yet memorable passwords using a user-provided word and numbers instead of random strings. Features include adjustable length, special characters, and a regenerate option, all within a minimalist, offline, and secure UI. Once completed, it will be published on the Chrome Web Store for global access. 🚀',
-    tech: ['JavaScript', 'Chrome Extension API', 'HTML/CSS', 'Security'],
-    links: {
-      github: 'https://github.com/vedjr02',
-      external: 'https://www.linkedin.com/in/vedantambre/'
-    }
-  },
-  {
     title: 'Project One',
     description:
       'A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.',
@@ -129,6 +120,99 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+
+        {/* Other Noteworthy Projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-32"
+        >
+          <h3 className="text-2xl font-bold text-center text-[#ccd6f6] mb-12">
+            Other Noteworthy Projects
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-[#112240] p-6 rounded-lg"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div className="text-[#64ffda] text-4xl">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-10 h-10"
+                  >
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div className="flex space-x-3">
+                  <a
+                    href="https://github.com/vedjr02"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#a8b2d1] hover:text-[#64ffda]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-5 h-5"
+                    >
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/vedantambre/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#a8b2d1] hover:text-[#64ffda]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-5 h-5"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-[#ccd6f6] mb-2">
+                Smart Password Generator
+              </h3>
+              <p className="text-[#a8b2d1] mb-4">
+                A Google Chrome extension that generates strong yet memorable passwords using a user-provided word and numbers. Features include adjustable length, special characters, and a regenerate option, all within a minimalist, offline, and secure UI.
+              </p>
+              <div className="flex flex-wrap gap-2 text-xs text-[#a8b2d1]">
+                <span className="px-2 py-1 bg-[#233554] rounded">JavaScript</span>
+                <span className="px-2 py-1 bg-[#233554] rounded">Chrome Extension API</span>
+                <span className="px-2 py-1 bg-[#233554] rounded">HTML/CSS</span>
+                <span className="px-2 py-1 bg-[#233554] rounded">Security</span>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </section>
     </ParallaxSection>
   );
