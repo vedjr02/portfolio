@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex h-16 justify-between items-center">
           <ScrollLink
             to="hero"
-            className="font-mono text-[#64ffda] text-lg cursor-pointer hover:text-shadow-glow transition-all duration-300"
+            className="font-mono text-[#64ffda] text-lg hover:text-shadow-glow transition-all duration-300"
             smooth={true}
             duration={500}
           >

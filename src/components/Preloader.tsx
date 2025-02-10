@@ -16,47 +16,34 @@ export default function Preloader() {
   const [currentLine, setCurrentLine] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const [isExploding, setIsExploding] = useState(false);
-  const [smokeParticles, setSmokeParticles] = useState<Array<{ id: number; x: number; y: number }>>([]);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     if (currentLine < codeLines.length && isTyping) {
       const timeout = setTimeout(() => {
         setCurrentLine(prev => prev + 1);
-      }, 1000);
+      }, 500);
       return () => clearTimeout(timeout);
     } else if (currentLine === codeLines.length && isTyping) {
       const timeout = setTimeout(() => {
         setIsTyping(false);
         setIsExploding(true);
-        createSmokeParticles();
       }, 500);
       return () => clearTimeout(timeout);
     }
   }, [currentLine, isTyping]);
 
-  const createSmokeParticles = () => {
-    const particles = [];
-    for (let i = 0; i < 50; i++) {
-      particles.push({
-        id: i,
-        x: Math.random() * 200 - 100,
-        y: Math.random() * 200 - 100,
-      });
-    }
-    setSmokeParticles(particles);
-  };
-
-  if (!isTyping && !isExploding) return null;
+  if (!isVisible) return null;
 
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center bg-navy"
       initial={false}
-      animate={isExploding ? { scale: 1.5, opacity: 0 } : { scale: 1, opacity: 1 }}
+      animate={isExploding ? { scale: 1.2, opacity: 0 } : { scale: 1, opacity: 1 }}
       transition={{ duration: 0.5 }}
       onAnimationComplete={() => {
         if (isExploding) {
-          setTimeout(() => setIsExploding(false), 1000);
+          setTimeout(() => setIsVisible(false), 100);
         }
       }}
     >
@@ -100,32 +87,12 @@ export default function Preloader() {
 
         {/* Explosion Effect */}
         {isExploding && (
-          <>
-            <motion.div
-              className="absolute inset-0 bg-[#64ffda]"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: [1, 2], opacity: [0.5, 0] }}
-              transition={{ duration: 0.5 }}
-            />
-            {smokeParticles.map((particle) => (
-              <motion.div
-                key={particle.id}
-                className="smoke-particle"
-                initial={{ scale: 1, opacity: 0.8, x: 0, y: 0 }}
-                animate={{
-                  scale: 2,
-                  opacity: 0,
-                  x: particle.x,
-                  y: particle.y,
-                }}
-                transition={{ duration: Math.random() * 1 + 1 }}
-                style={{
-                  left: '50%',
-                  top: '50%',
-                }}
-              />
-            ))}
-          </>
+          <motion.div
+            className="absolute inset-0 bg-[#64ffda]"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: [1, 2], opacity: [0.5, 0] }}
+            transition={{ duration: 0.5 }}
+          />
         )}
       </div>
     </motion.div>

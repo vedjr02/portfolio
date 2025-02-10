@@ -62,7 +62,7 @@ export default function FloatingTechBubbles() {
       {bubbles.map((bubble) => (
         <motion.div
           key={bubble.id}
-          className="absolute flex items-center justify-center rounded-full bg-[#64ffda]/10 border border-[#64ffda]/20 text-[#64ffda] font-mono text-sm cursor-pointer hover:bg-[#64ffda]/20 transition-colors"
+          className="absolute flex items-center justify-center rounded-full bg-[#64ffda]/10 border border-[#64ffda]/20 text-[#64ffda] font-mono text-sm hover:bg-[#64ffda]/20 transition-colors"
           style={{
             width: bubble.size,
             height: bubble.size,

@@ -68,8 +68,7 @@ export default function Hero() {
               smooth={true}
               offset={-70}
               duration={500}
-              className="button-primary focus-item"
-              data-cursor="link"
+              className="inline-block px-8 py-4 border-2 border-[#64ffda] text-[#64ffda] font-mono rounded hover:bg-[#64ffda]/10 transition-colors relative group"
             >
               Check out my work!
             </Link>

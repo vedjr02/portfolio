@@ -69,7 +69,7 @@ export default function ScrollProgress() {
             offset={-70}
             duration={500}
             className="w-3 h-3 rounded-full bg-navy-light border border-primary/20 
-                     hover:scale-150 hover:bg-primary/20 transition-all duration-300 cursor-pointer"
+                     hover:scale-150 hover:bg-primary/20 transition-all duration-300"
             activeClass="bg-primary scale-150"
           />
         ))}
