@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 const featuredProjects = [
@@ -12,7 +11,6 @@ const featuredProjects = [
     tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
     github: 'https://github.com/vedjr02/portfolio',
     external: 'https://vedantambre.com',
-    image: '/portfolio.png',
   },
   {
     title: 'Air Canvas',
@@ -21,7 +19,6 @@ const featuredProjects = [
     tech: ['Python', 'OpenCV', 'MediaPipe', 'Computer Vision'],
     github: 'https://github.com/vedjr02/air-canvas',
     external: '#',
-    image: '/air-canvas.png',
   },
 ];
 
@@ -60,7 +57,7 @@ export default function Projects() {
         </h2>
 
         {/* Featured Projects */}
-        <div className="space-y-32">
+        <div className="space-y-16">
           {featuredProjects.map((project, i) => (
             <motion.div
               key={project.title}
@@ -68,30 +65,9 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative grid md:grid-cols-2 gap-8 items-center"
+              className="relative"
             >
-              {/* Project Image */}
-              <div className={`relative ${i % 2 === 0 ? 'md:order-1' : ''}`}>
-                <a
-                  href={project.external}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block relative group"
-                >
-                  <div className="relative aspect-[4/3] bg-[#64ffda]/10">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      className="object-cover mix-blend-multiply filter grayscale contrast-100 brightness-50 group-hover:filter-none group-hover:mix-blend-normal transition-all duration-300"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              {/* Project Info */}
-              <div className={`relative z-10 ${i % 2 === 0 ? 'md:text-right' : ''}`}>
+              <div className="relative z-10">
                 <p className="font-mono text-[#64ffda] text-sm mb-2">Featured Project</p>
                 <h3 className="text-2xl font-semibold text-gray-200 mb-4">
                   <a
@@ -106,14 +82,12 @@ export default function Projects() {
                 <div className="bg-[#112240] p-6 rounded-lg shadow-xl mb-4">
                   <p className="text-gray-400">{project.description}</p>
                 </div>
-                <ul className={`flex flex-wrap gap-4 text-sm font-mono text-gray-400 mb-4 ${
-                  i % 2 === 0 ? 'justify-end' : ''
-                }`}>
+                <ul className="flex flex-wrap gap-4 text-sm font-mono text-gray-400 mb-4">
                   {project.tech.map((tech) => (
                     <li key={tech}>{tech}</li>
                   ))}
                 </ul>
-                <div className={`flex gap-4 ${i % 2 === 0 ? 'justify-end' : ''}`}>
+                <div className="flex gap-4">
                   <a
                     href={project.github}
                     target="_blank"
@@ -155,30 +129,9 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-[#112240] rounded-lg p-8 hover:-translate-y-2 transition-transform duration-300"
+                className="bg-[#112240] p-6 rounded-lg"
               >
-                <div className="flex justify-between items-center mb-8">
-                  <FiGithub size={40} className="text-[#64ffda]" />
-                  <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-[#64ffda] transition-colors"
-                    >
-                      <FiGithub size={20} />
-                    </a>
-                    <a
-                      href={project.external}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-[#64ffda] transition-colors"
-                    >
-                      <FiExternalLink size={20} />
-                    </a>
-                  </div>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-200 mb-2">
+                <h3 className="text-xl font-semibold text-gray-200 mb-4">
                   <a
                     href={project.external}
                     target="_blank"
@@ -188,12 +141,30 @@ export default function Projects() {
                     {project.title}
                   </a>
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-                <ul className="flex flex-wrap gap-3 text-sm font-mono text-gray-400">
+                <p className="text-gray-400 mb-4">{project.description}</p>
+                <ul className="flex flex-wrap gap-2 text-sm font-mono text-gray-400 mb-4">
                   {project.tech.map((tech) => (
                     <li key={tech}>{tech}</li>
                   ))}
                 </ul>
+                <div className="flex gap-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-[#64ffda] transition-colors"
+                  >
+                    <FiGithub size={20} />
+                  </a>
+                  <a
+                    href={project.external}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-[#64ffda] transition-colors"
+                  >
+                    <FiExternalLink size={20} />
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>
