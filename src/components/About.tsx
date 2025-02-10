@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function About() {
   const skills = [
@@ -52,18 +51,6 @@ export default function About() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="relative group">
-              <div className="relative w-full max-w-[300px] mx-auto aspect-square">
-                <Image
-                  src="/profile.jpg"
-                  alt="Profile"
-                  fill
-                  className="rounded object-cover filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 border-2 border-[#64ffda] rounded translate-x-5 translate-y-5 -z-10 transition-transform group-hover:translate-x-4 group-hover:translate-y-4"></div>
-              </div>
             </div>
           </div>
         </motion.div>

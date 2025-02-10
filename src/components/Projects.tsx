@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
-import LinkedInEmbed from './LinkedInEmbed';
 
 const projects = [
   {
@@ -34,8 +33,8 @@ const projects = [
     description:
       'Air Canvas is an innovative project that enables users to draw in the air using hand gestures. It utilizes computer vision and machine learning to track hand movements and convert them into digital drawings.',
     tech: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
-    linkedInPost: 'urn:li:activity:YOUR_POST_ID_HERE', // Replace with your actual LinkedIn post ID
-    github: 'https://github.com/yourusername/air-canvas',
+    linkedInPost: '7294427803557457920',
+    github: 'https://github.com/Vedjr02/air-canvas',
     external: 'https://your-demo-link.com',
   },
 ];
@@ -88,8 +87,15 @@ export default function Projects() {
                   </div>
                   <p className="text-[#8892b0] mb-4">{project.description}</p>
                   {project.linkedInPost && (
-                    <div className="mb-4">
-                      <LinkedInEmbed postUrl={project.linkedInPost} />
+                    <div className="w-full mb-4 bg-white rounded-lg overflow-hidden">
+                      <iframe
+                        src={`https://www.linkedin.com/embed/feed/update/${project.linkedInPost}`}
+                        height="500"
+                        width="100%"
+                        frameBorder="0"
+                        allowFullScreen
+                        title="Embedded LinkedIn Post"
+                      ></iframe>
                     </div>
                   )}
                   <ul className="flex flex-wrap gap-2 mb-4">

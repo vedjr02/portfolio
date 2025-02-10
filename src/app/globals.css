@@ -38,25 +38,6 @@
   }
 }
 
-/* Mouse Effects */
-.mouse-glow {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle at center, 
-    rgba(100, 255, 218, 0.15),
-    rgba(100, 255, 218, 0.1) 25%,
-    rgba(100, 255, 218, 0.05) 50%,
-    transparent 75%
-  );
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  mix-blend-mode: screen;
-}
-
 .glass-card {
   background-color: rgba(17, 34, 64, 0.8);
   backdrop-filter: blur(8px);
