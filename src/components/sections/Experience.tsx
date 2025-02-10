@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const jobs = [
@@ -29,7 +28,7 @@ export default function Experience() {
       >
         <h2 className="flex items-center font-semibold text-2xl text-gray-200 mb-8">
           <span className="font-mono text-[#64ffda] text-xl mr-2">02.</span>
-          Where I've Worked
+          Where I&apos;ve Worked
           <span className="ml-4 h-[1px] w-32 bg-gray-600" />
         </h2>
 

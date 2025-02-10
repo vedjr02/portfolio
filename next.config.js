@@ -1,23 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['vedantambre.com'],
-  },
-  async redirects() {
-    return [
+    unoptimized: true,
+    remotePatterns: [
       {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.vedantambre.com',
-          },
-        ],
-        destination: 'https://vedantambre.com/:path*',
-        permanent: true,
+        protocol: 'https',
+        hostname: 'vedantambre.com',
       },
-    ];
+    ],
   },
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 module.exports = nextConfig;

@@ -12,13 +12,16 @@ export default function Contact() {
         transition={{ duration: 0.5 }}
         className="max-w-2xl mx-auto"
       >
-        <p className="font-mono text-[#64ffda] mb-4">04. What's Next?</p>
-        <h2 className="text-4xl md:text-5xl font-semibold text-gray-200 mb-4">
-          Get In Touch
+        <h2 className="flex items-center justify-center font-semibold text-2xl text-gray-200 mb-4">
+          <span className="font-mono text-[#64ffda] text-xl mr-2">04.</span>
+          What&apos;s Next?
         </h2>
+        <h3 className="text-4xl md:text-5xl font-semibold text-gray-200 text-center mb-8">
+          Get In Touch
+        </h3>
         <p className="text-gray-400 mb-12">
-          I'm currently looking for new opportunities in software development and data science.
-          Whether you have a project in mind or just want to connect, I'll try my best to get back to you!
+          I&apos;m currently looking for new opportunities in software development and data science.
+          Whether you have a project in mind or just want to connect, I&apos;ll try my best to get back to you!
         </p>
         <motion.a
           href="mailto:ambreved3@gmail.com"

@@ -1,13 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 const featuredProjects = [
   {
     title: 'Portfolio Website',
     description:
-      'A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Framer Motion. Features smooth animations, dynamic content loading, and a clean, minimalist design inspired by Brittany Chiang\'s portfolio.',
+      'A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Framer Motion. Features smooth animations, dynamic content loading, and a clean, minimalist design inspired by Brittany Chiang&apos;s portfolio.',
     tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
     github: 'https://github.com/vedjr02/portfolio',
     external: 'https://vedantambre.com',
@@ -54,7 +55,7 @@ export default function Projects() {
       >
         <h2 className="flex items-center font-semibold text-2xl text-gray-200 mb-8">
           <span className="font-mono text-[#64ffda] text-xl mr-2">03.</span>
-          Some Things I've Built
+          Some Things I&apos;ve Built
           <span className="ml-4 h-[1px] w-32 bg-gray-600" />
         </h2>
 
@@ -78,10 +79,12 @@ export default function Projects() {
                   className="block relative group"
                 >
                   <div className="relative aspect-[4/3] bg-[#64ffda]/10">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="object-cover mix-blend-multiply filter grayscale contrast-100 brightness-50 group-hover:filter-none group-hover:mix-blend-normal transition-all duration-300"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 </a>
