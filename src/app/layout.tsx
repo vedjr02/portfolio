@@ -16,8 +16,22 @@ export const metadata: Metadata = {
     description: 'Software engineer specializing in building exceptional digital experiences.',
     url: 'https://vedantambre.com',
     siteName: 'Vedant Ambre',
-    locale: 'en_US',
+    images: [
+      {
+        url: 'https://vedantambre.com/og.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en-US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vedant Ambre | Software Engineer',
+    description: 'Software engineer specializing in building exceptional digital experiences.',
+    creator: '@vedantambre',
+    images: ['https://vedantambre.com/og.png'],
   },
   robots: {
     index: true,
@@ -33,16 +47,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-[#0a192f] text-gray-300 antialiased min-h-screen`}>
-        <Preloader />
-        <div className="relative min-h-screen">
+        <div className="fixed inset-0 z-0">
           <ParticleBackground />
-          <div className="relative z-10">
-            <main className="relative">
-              {children}
-              <Analytics />
-            </main>
-          </div>
         </div>
+        <Preloader />
+        <main className="relative z-10">
+          {children}
+          <Analytics />
+        </main>
       </body>
     </html>
   );
