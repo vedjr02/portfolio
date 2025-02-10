@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-mono {
+  font-family: var(--font-fira-code), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-[#0a192f] text-gray-300;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply cursor-pointer hover:text-[#64ffda] transition-colors duration-300;
+  }
+  
+  .section-heading {
+    @apply text-2xl font-bold text-gray-200 mb-8 flex items-center;
+  }
+  
+  .section-heading::after {
+    content: '';
+    @apply h-[1px] bg-gray-600 flex-grow ml-4;
+  }
+  
+  .project-card {
+    @apply relative bg-[#112240] p-6 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300;
+  }
+}
