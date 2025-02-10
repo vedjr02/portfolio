@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/sections/Hero';
-import ScrollProgress from '@/components/ScrollProgress';
 
 // Dynamically import components to improve initial load time
 const About = dynamic(() => import('@/components/sections/About'), {
@@ -104,7 +103,6 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-navy">
-      <ScrollProgress />
       <Navbar />
       <AnimatePresence>
         <main className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
